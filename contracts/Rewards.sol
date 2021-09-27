@@ -25,7 +25,7 @@ contract Rewards {
     function disburseRewards() external onlyOwner {
         require(ammCurrentTotal!=0, "No rewards to be disbursed");
         for (uint i=0; i<contributors.length; i++) {
-            rewards[contributors[i]] += contributions[msg.sender]/ammCurrentTotal;
+            rewards[contributors[i]] += contributions[contributors[i]]/ammCurrentTotal;
         }
         ammCurrentTotal = 0;
     }
